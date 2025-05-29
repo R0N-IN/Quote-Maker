@@ -2,7 +2,7 @@
 let tableData =[]
 
 const table = document.getElementById("form-table");
-const columns = 4;
+const columns = 3;
 let rows = 1;
 function createTable(){    
     // Clear existing table data
@@ -10,7 +10,7 @@ function createTable(){
         table.removeChild(table.firstChild);
     }
     
-    let headers = ["Descripcion", "Cantidad", "Precio Unitario", "Total"];
+    let headers = ["Descripcion", "Cantidad", "Precio Unitario"];
 
     // Create thead and header row
     let thead = document.createElement("thead");

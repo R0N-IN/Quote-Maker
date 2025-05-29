@@ -9,6 +9,9 @@ body {
 .container{
   width: 60%;
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 h1 {
@@ -17,22 +20,31 @@ text-align: center;
 }
 
 .input-container{
-width: 80%;
-margin: 0 auto;  
-display: flex;
-justify-content: center;
-flex-wrap: wrap;
+  font-size: 16px;
+  width: 80%;
+  margin: 0 auto;  
+  display: grid
 }
 
-#columns-input,#rows-input {
+#note-field {
+
+width: 100%;
+height: 100px;
+resize: none;
+}
+
+#name-field, #note-field, #company-field {
+font-family: 'Courier New', Courier, monospace;
+width: 100%;
 padding: 10px;
 font-size: 16px;
 margin-right: 10px;
 border-radius: 5px;
 border: 1px solid #ccc;
+margin-bottom: 5px;
 }
 
-#rows-input:focus, #columns-input:focus {
+#name-field:focus, #note-field:focus {
 border-color: #66afe9;
 outline: 0;
 -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);

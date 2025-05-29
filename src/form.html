@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Formulario de Cotización</title>
+    <link rel="stylesheet" href="form-style.css">
+  </head>
+  <body onload="createTable()">
+    <div class="container">
+      <h1>Datos de Cotización</h1>
+      <div class="container">
+        <button onclick="addRow()">Añadir Fila </button>
+      </div>
+
+      <table id="quote-table">
+        <tbody>
+          <!-- row will be dinamically generated here  -->
+        </tbody>
+      </table>
+      </div> 
+      <div class="container">
+        <button id="create-file" onclick="displayData()">Crear Cotizacion</button>
+      </div>   
+      <script src="create-table.js"></script>
+    </body>
+</html>
+<!--
+      <form action="/submit-quote" method="POST">
+        <label for="client_name">Nombre del Cliente:</label>
+        <input type="text" id="client_name" name="client_name" required>
+
+        <label for="client_email">Correo Electrónico:</label>
+        <input type="email" id="client_email" name="client_email" required>
+
+        <label for="product_description">Descripción del Producto:</label>
+        <textarea id="product_description" name="product_description" required></textarea>
+
+        <label for="quantity">Cantidad:</label>
+        <input type="number" id="quantity" name="quantity" min="1" required>
+
+        <label for="price">Precio Unitario:</label>
+        <input type="number" id="price" name="price" step="0.01" required>
+
+        <button type="submit">Enviar Cotización</button>
+      </form>
+
+
+  </body>
+
+
+
+
+
+</html>

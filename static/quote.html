@@ -4,18 +4,15 @@
   <head>
     <meta charset="UTF-8">
     <title>Cotización PC BANG</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="quote-style.css">
   </head>
   <body>
-    
     <section class="header">  
       <header>
           <p>Cotización</p>
       </header>
     </section>
-      
-
-    <section class="company-info">
+    <section id="company-info">
       <div>
         <h1>CG Services</h2>
         <p>Hdez Covarrubias Mzna 1, Azcapotzalco, CDMX, 02430</p>
@@ -33,8 +30,7 @@
         <p>ABC11651561</p>
       </div>
     </section>  
-
-    <section class="client-info">
+    <section id="client-info">
       <div>
         <h4>Notas:</h4>
       </div>
@@ -46,8 +42,7 @@
         <p>Tel: 55 68420562</p>
       </div>
     </section>
-
-    <table class="table">
+    <table id="quote-table">
       <thead>
         <tr>
           <th>Descripción</th>
@@ -56,21 +51,11 @@
           <th>Total</th>
         </tr>
       </thead>
-      <tbody>
-        <tr><td>Ventilador ARGB Lian Li UNI Fan SL-Infinity 120</td><td>30</td><td>$690.00</td><td>$20,700.00</td></tr>
-        <tr><td>Gabinete Thermaltake Core P3 TG Pro</td><td>10</td><td>$3,300.00</td><td>$33,000.00</td></tr>
-        <tr><td>Radiador 360mm Corsair Hydro X Series XR5</td><td>10</td><td>$2,200.00</td><td>$22,000.00</td></tr>
-        <tr><td>Protector acrílico lateral con logo</td><td>10</td><td>$1,200.00</td><td>$12,000.00</td></tr>
-        <tr><td>Tubería Corsair X Series 12mm x 1.5m</td><td>10</td><td>$800.00</td><td>$8,000.00</td></tr>
-        <tr><td>Líquido refrigerante Corsair Hydro X Series, XL8 700ml</td><td>10</td><td>$600.00</td><td>$6,000.00</td></tr>
-        <tr><td>Conexiones fitting 12mm 90° Corsair</td><td>20</td><td>$700.00</td><td>$14,000.00</td></tr>
-        <tr><td>Mano de obra</td><td>10</td><td>$7,500.00</td><td>$75,000.00</td></tr>
-      </tbody>
     </table>
 
-    <section class="summary">
+    <section id="summary">
       <div>
-        <table class = "summary-table">
+        <table id = "summary-table">
           <tbody> 
             <tr><td>SUBTOTAL:</td><td>$190,700.00</td></tr>
             <tr><td>IVA 16%:</td><td>$30,512.00</td></tr>
@@ -79,13 +64,11 @@
         </table>
       </div>
     </section>
-
-    
-
-    <section class="footer">
+    <section id="footer">
       <p>Favor de verificar que la información sea correcta y cumple con lo requerido para completar la compra. Comunicarse por correo a <strong>mchavezguzm@gmail.com</strong> con Manuel Chavez proporcionando sus datos de facturación.</p>
       <p><strong>GRACIAS POR SU CONFIANZA</strong></p>
       <p>Los tiempos de entrega pueden variar de acuerdo a disponibilidad. Por favor, revise esta información con el responsable del servicio.</p>
     </section>
+    <script src="create-quote-table.js"></script>
   </body>
 </html>

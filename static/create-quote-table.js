@@ -1,6 +1,7 @@
+
 let tableData =[]
 
-let table = document.getElementById("quote-table");
+let table = document.getElementById("form-table");
 let columns = 4;
 let rows = 1;
 
@@ -46,9 +47,8 @@ function addRow(){
     }
     table.appendChild(row);
     tableData.push(rowData);
+    rows++;
 }
-
-
 
 function updateCell(event) {
     let rowIndex = event.target.parentNode.rowIndex - 1;
@@ -61,6 +61,11 @@ function updateData(row, col, value) {
     tableData[row][col] = value;
 }
 
+function saveAndGo() {
+    localStorage.clear();
+    localStorage.setItem("tableData", JSON.stringify(tableData));
+    window.open("/static/quote.html", "_blank"); 
+}
 
 function displayData() {
     console.log(tableData);

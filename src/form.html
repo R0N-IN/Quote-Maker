@@ -9,10 +9,11 @@
       <div class="container">
         <h1>Datos de Cotización</h1>
         <div class="input-container">
-          <label for="name-field">Nombre del Cliente:</label>
           <input type="text" id="name-field" placeholder="Nombre del Cliente">
+          <input type="text" id="company-field" placeholder="Empresa">
+          <textarea id="note-field" placeholder="Nota"></textarea>
         </div>  
-        <div class="input-container">
+        <div class="container">
           <button onclick="addRow()">Añadir Fila </button>
         </div>
 
@@ -20,7 +21,7 @@
             <!-- row will be dinamically generated here  -->
         </table>
        
-        <div class="input-container">
+        <div class="container">
           <button id="create-file" onclick="displayData();saveAndGo()">Crear Cotizacion</button>
         </div>   
         <script src="create-form-table.js"></script>

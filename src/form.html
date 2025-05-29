@@ -6,19 +6,24 @@
     <link rel="stylesheet" href="form-style.css">
   </head>
   <body onload="createTable()">
-    <div class="container">
-      <h1>Datos de Cotización</h1>
       <div class="container">
-        <button onclick="addRow()">Añadir Fila </button>
-      </div>
+        <h1>Datos de Cotización</h1>
+        <div class="input-container">
+          <label for="name-field">Nombre del Cliente:</label>
+          <input type="text" id="name-field" placeholder="Nombre del Cliente">
+        </div>  
+        <div class="input-container">
+          <button onclick="addRow()">Añadir Fila </button>
+        </div>
 
-      <table id="form-table">
-          <!-- row will be dinamically generated here  -->
-      </table>
-      </div> 
-      <div class="container">
-        <button id="create-file" onclick="displayData();saveAndGo()">Crear Cotizacion</button>
-      </div>   
-      <script src="create-form-table.js"></script>
-    </body>
+        <table id="form-table">
+            <!-- row will be dinamically generated here  -->
+        </table>
+       
+        <div class="input-container">
+          <button id="create-file" onclick="displayData();saveAndGo()">Crear Cotizacion</button>
+        </div>   
+        <script src="create-form-table.js"></script>
+      </div>
+  </body>
 </html>

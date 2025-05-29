@@ -1,9 +1,12 @@
-
 let tableData =[]
 
 const table = document.getElementById("form-table");
 const columns = 3;
+const clientNameField = document.getElementById("name-field");
+const noteField = document.getElementById("note-field");
+const companyNameField = document.getElementById("company-field");
 let rows = 1;
+
 function createTable(){    
     // Clear existing table data
     while(table.firstChild) {
@@ -66,6 +69,9 @@ function saveAndGo() {
     localStorage.clear();
     localStorage.setItem("tableData", JSON.stringify(tableData));
     localStorage.setItem("rows", rows - 1);
+    localStorage.setItem("clientNameField", clientNameField.value);
+    localStorage.setItem("noteField", noteField.value);
+    localStorage.setItem("companyNameField", companyNameField.value);
     window.open("/static/quote.html", "_blank"); 
 }
 

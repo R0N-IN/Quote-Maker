@@ -1,8 +1,8 @@
 
 let tableData =[]
 
-let table = document.getElementById("form-table");
-let columns = 4;
+const table = document.getElementById("form-table");
+const columns = 4;
 let rows = 1;
 function createTable(){    
     // Clear existing table data
@@ -65,6 +65,7 @@ function updateData(row, col, value) {
 function saveAndGo() {
     localStorage.clear();
     localStorage.setItem("tableData", JSON.stringify(tableData));
+    localStorage.setItem("rows", rows - 1);
     window.open("/static/quote.html", "_blank"); 
 }
 

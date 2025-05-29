@@ -1,73 +1,22 @@
 
-let tableData =[]
+const tableData = JSON.parse(localStorage.getItem('tableData'));
+const rows = localStorage.getItem('rows');
+const columns = 4;
 
-let table = document.getElementById("form-table");
-let columns = 4;
-let rows = 1;
+function fillTable() {    
+    const table = document.getElementById('quote-table');
+    tbody = document.createElement('tbody');
+    table.appendChild(tbody);
 
-function createTable(){    
-    // Clear existing table data
-    while(table.firstChild) {
-        table.removeChild(table.firstChild);
+    for (let i = 0; i < rows; i++) {
+        const row = document.createElement('tr');
+        for (let j = 0; j < columns; j++) {
+            const cell = document.createElement('td');
+            cell.setAttribute('data-static', 'true');
+            cell.setAttribute('class', 'text');
+            cell.textContent = tableData[i][j];
+            row.appendChild(cell);
+        }
+        tbody.appendChild(row);
     }
-    
-    let headers = ["Descripcion", "Cantidad", "Precio Unitario", "Total"];
-
-    // Create thead and header row
-    let thead = document.createElement("thead");
-    let headerRow = document.createElement("tr");
-
-    for (let header of headers) {
-        let th = document.createElement("th"); 
-        let headerText = document.createElement("span");
-        headerText.setAttribute("class", "header-text");
-        headerText.textContent = header;
-        th.appendChild(headerText);
-        headerRow.appendChild(th);
-    }
-
-    // Append the header row to the thead, and thead to the table
-    thead.appendChild(headerRow);
-    table.appendChild(thead);
-
-    // Call your function to add a row (if needed)
-    addRow();
-}
-
-function addRow(){
-    let rowData = [];
-    let row = document.createElement("tr");
-    for (let j = 0; j < columns; j++) {
-        let cell = document.createElement("td");
-        cell.setAttribute("contenteditable", "true");
-        cell.setAttribute("class", "editable-cell");
-        cell.addEventListener("input", updateCell);
-        rowData.push("");
-        row.appendChild(cell);
-    }
-    table.appendChild(row);
-    tableData.push(rowData);
-    rows++;
-}
-
-function updateCell(event) {
-    let rowIndex = event.target.parentNode.rowIndex - 1;
-    let columnIndex = event.target.cellIndex;
-    let value = event.target.textContent.trim();
-    updateData(rowIndex, columnIndex, value);
-}
-
-function updateData(row, col, value) {
-    tableData[row][col] = value;
-}
-
-function saveAndGo() {
-    localStorage.clear();
-    localStorage.setItem("tableData", JSON.stringify(tableData));
-    window.open("/static/quote.html", "_blank"); 
-}
-
-function displayData() {
-    console.log(tableData);
-    console.log(table);
 }

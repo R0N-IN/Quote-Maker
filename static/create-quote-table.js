@@ -1,10 +1,15 @@
 
 const rows = localStorage.getItem('rows');
 const tableData = JSON.parse(localStorage.getItem('tableData'));
+let clientCompanyName = localStorage.getItem('clientCompanyName');
+const clientNameField = localStorage.getItem('clientNameField');
+const noteField = localStorage.getItem('noteField');
+
+console.log(clientCompanyName)
+console.log(typeof clientCompanyName);
 
 
-
-function totalColumnData() {
+function getTotalColumnData() {
     let total = 0;
     let totalColumn = []
     //Calculate total for each row 
@@ -20,15 +25,16 @@ function totalColumnData() {
     return [totalColumn, total.toFixed(2)];
 }
 
-function fillQuote() {   
+function fillQuote() {
+    fillQuoteDetails();   
     subTotal = fillTable();
     fillSummary(subTotal);
     // Fill the quote info
-    fillQuoteInfo();
+    fillRecipientDetails();
 }
 function fillTable() {
     const columns = 3; 
-    const totalData = totalColumnData();
+    const totalData = getTotalColumnData();
     const totalColumn = totalData[0];
     const subTotal = totalData[1];
 
@@ -64,20 +70,37 @@ function fillSummary(subTotal){
     total = document.getElementById('total').textContent = parseFloat(subTotal) + iva; // Total = Subtotal + IVA
 }
 
-
-const clientCompanyName = document.getElementById('client-company-name');
-const clientNameField = document.getElementById('client-name');
-const noteField = document.getElementById('note-field');
-
-function fillQuoteInfo() {
-    const clientCompanyName = localStorage.getItem('clientCompanyName');
-    const clientNameField = localStorage.getItem('clientNameField');
-    const noteField = localStorage.getItem('noteField');
-
+function fillRecipientDetails() {
+    
+    if (clientCompanyName === null || clientCompanyName === undefined || clientCompanyName === '') {
+        clientCompanyName = '';
+    }
     document.getElementById('client-company-name').textContent = clientCompanyName;
     document.getElementById('client-name').textContent = clientNameField;
     document.getElementById('notes').textContent = noteField;
 }
 
+function dayOfTheYear(date) {
+  return Math.floor((date - new Date(date.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24);
+}
+
+
+function createClientID() {
+    const len = clientCompanyName.length;
+    const firstThird = clientCompanyName.slice(0, len / 3).toUpperCase();
+    const lastThird = clientCompanyName.slice(len - len / 3).toUpperCase();
+
+    return firstThird + 'XXXX' + lastThird;
+}
+function fillQuoteDetails() {
+    today = new Date()
+    document.getElementById('quote-number').textContent = dayOfTheYear(today)
+    document.getElementById('date').textContent = today.toLocaleDateString('es-MX', { year: 'numeric', month: '2-digit', day: '2-digit' });
+    if( clientCompanyName === null || clientCompanyName === undefined || clientCompanyName === '') {
+        document.getElementById('id-client').textContent = 'XXXXXXX';
+    }else {
+        document.getElementById('id-client').textContent = createClientID();
+    }
+}
 
 

@@ -11,8 +11,13 @@
         <div class="input-container">
           <input type="text" id="name-field" placeholder="Nombre del Cliente">
           <input type="text" id="company-field" placeholder="Empresa">
-          <textarea id="note-field" placeholder="Nota"></textarea>
-        </div>  
+          <textarea id="note-field" placeholder="Nota"></textarea> 
+          <div class="checkbox-group">
+            <input type="checkbox" id="include-iva-checkbox" value="include-iva">
+            <label for="include-iva-checkbox">Incluir IVA?</label>
+          </div> 
+        </div> 
+        
         <div class="container">
           <button onclick="addRow()">Añadir Fila </button>
         </div>

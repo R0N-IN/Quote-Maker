@@ -78,6 +78,7 @@ function saveAndGo() {
     localStorage.setItem("clientNameField", clientNameField.value);
     localStorage.setItem("noteField", noteField.value);
     localStorage.setItem("clientCompanyName", clientCompanyName.value);
+    localStorage.setItem("include-iva", document.getElementById("include-iva-checkbox").checked);
     window.open("/static/quote.html", "_blank"); 
 }
 

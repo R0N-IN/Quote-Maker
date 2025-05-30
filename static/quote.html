@@ -6,7 +6,7 @@
     <title>Cotización PC BANG</title>
     <link rel="stylesheet" href="quote-style.css">
   </head>
-  <body onload="fillTable();fillTotalColumn()">
+  <body onload="fillQuote()">
     <div class="container">
       <section class="header">  
       <header>
@@ -23,7 +23,7 @@
         <div id="quote-info1"> 
           <p><strong>Nº DE ORDEN:</strong></p>
           <p><strong>FECHA:</strong></p>
-          <p><strong>ID. CLIENTE</strong></p>
+          <p><strong>ID.CLIENTE:</strong></p>
         </div>
         <div id="quote-info2">
           <p>115</p>
@@ -32,15 +32,16 @@
         </div>
       </section>  
       <section id="second-section">
-        <div id="notes">
-          <h4>Notas:</h4>
+        <div>
+          <h4 id="notes-header">Notas:</h4>
+          <p id="notes"></p>
         </div>
         <div id="recipient-details">
-          <h4>Para:</h4>
-          <p><strong>Roberto Melendez Penilla</strong></p>
-          <p>Riot Games</p>
-          <p>Av. de los Insurgentes Sur 730, Benito Juarez, CDMX, 03100</p>
-          <p>Tel: 55 68420562</p>
+          <h4 id="recipient-details-header">Para:</h4>
+          <p id="client-name"><strong></strong></p>
+          <p id="client-company-name"></p>
+          <p id="client-address"></p>
+          <p id="client-phone"></p>
         </div>
       </section>
       <table id="quote-table">
@@ -57,6 +58,19 @@
       <section id="summary">
         <div>
           <table id = "summary-table">
+            <tbody>
+              <tr>
+                <td>SUBTOTAL: $</td>
+                <td id="subtotal"></td>
+              </tr>
+              <tr>
+                <td>IVA (16%): $</td>
+                <td id="iva"></td>
+              </tr>
+              <tr>
+                <td>TOTAL: $</td>
+                <td id="total"></td>
+              </tr>
           </table>
         </div>
       </section>

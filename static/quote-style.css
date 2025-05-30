@@ -28,6 +28,7 @@ body {
   margin-bottom: 20px;
 }
 
+
 #first-section {
   margin-bottom: 20px;
   display: flex;
@@ -54,18 +55,26 @@ body {
 }
 
 #second-section {
-  width: auto;
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
-#notes {
-  width: 60%;
-  font-size: 15px;
+#notes-header, #recipient-details-header {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
+
+#notes {
+  width: 50%;
+  font-size: 14px;
+}
+
 #recipient-details {
-  width: 40%;
-  font-size: 15px;
+  width: 50%;
+  font-size: 14px;
+  margin-left: 20px;
 }
 
 #quote-table{
@@ -76,6 +85,7 @@ body {
 #quote-table th, #quote-table td {
   border: 1px solid #999;
   padding: 5px;
+  font-size: 14px;
 }
 
 #quote-table th {
@@ -91,14 +101,17 @@ body {
 }
 
 #summary-table, #summary-table th, #summary-table td {
+  text-align: right;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 16px;
   width: 100%;
   margin-top: 10px;
   border-bottom: 1px solid #999;
   border-collapse: collapse;
   padding: 5px;
-
+}
+#iva, #total, #subtotal {
+  text-align: left;
 }
 
 #footer {

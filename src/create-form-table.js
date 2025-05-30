@@ -20,7 +20,13 @@ function createTable(){
     let headerRow = document.createElement("tr");
 
     for (let header of headers) {
-        let th = document.createElement("th"); 
+        let th = document.createElement("th");
+        th.setAttribute("class", "header-cell");
+        if(header === "Descripcion") {
+            th.setAttribute("width", "80%");
+        }else{
+            th.setAttribute("width", "10%"); 
+        }
         let headerText = document.createElement("span");
         headerText.setAttribute("class", "header-text");
         headerText.textContent = header;

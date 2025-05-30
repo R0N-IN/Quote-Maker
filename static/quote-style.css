@@ -20,6 +20,9 @@ body {
   text-align: right;
   margin-bottom: 10px;
 }
+td {
+    word-wrap: break-word;
+}
 
 #first-section, #second-section, .meta, #summary, #notes {
   p {
@@ -67,12 +70,12 @@ body {
 }
 
 #notes {
-  width: 100%;
+  width: 70%;
   font-size: 14px;
 }
 
 #recipient-details {
-  width: 100%;
+  width: 30%;
   font-size: 14px;
   margin-left: 20px;
 }
@@ -93,6 +96,13 @@ body {
   font-weight: bold;
   font-size: 16px;
   text-align: center;
+}
+#description-th {
+  width: 70%;
+}
+#quantity-th, #unit-price-th, #total-th {
+  width: 10%;
+  text-align: right;
 }
 
 #summary{

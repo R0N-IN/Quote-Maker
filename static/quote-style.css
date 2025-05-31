@@ -33,6 +33,7 @@ td {
 
 
 #first-section {
+  width: 110%;
   margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
@@ -48,13 +49,17 @@ td {
   font-size: 14px;
 }
 #quote-info1 {
-  width: 30%;
+  width: 20%;
   font-size: 14px;
   text-align: right;
+  float: right;
 }
 #quote-info2 {
+  width: 30%;
   font-size: 14px;
   text-align: left;
+  margin-right: 0px;
+  float: right;
 }
 
 #second-section {

@@ -5,6 +5,7 @@ const columns = 3;
 const clientNameField = document.getElementById("name-field");
 const noteField = document.getElementById("note-field");
 const clientCompanyName = document.getElementById("company-field");
+const ivaStatus = document.getElementById("include-iva-checkbox").checked
 let rows = 1;
 
 function createTable(){    
@@ -78,7 +79,7 @@ function saveAndGo() {
     localStorage.setItem("clientNameField", clientNameField.value);
     localStorage.setItem("noteField", noteField.value);
     localStorage.setItem("clientCompanyName", clientCompanyName.value);
-    localStorage.setItem("include-iva", document.getElementById("include-iva-checkbox").checked);
+    localStorage.setItem("include-iva",ivaStatus.checked);
     window.open("/static/quote.html", "_blank"); 
 }
 

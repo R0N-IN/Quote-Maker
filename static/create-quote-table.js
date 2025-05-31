@@ -1,10 +1,12 @@
 
-const rows = localStorage.getItem('rows');
+const rows = parseInt(localStorage.getItem('rows'));
 const tableData = JSON.parse(localStorage.getItem('tableData'));
 const clientNameField = localStorage.getItem('clientNameField');
 const noteField = localStorage.getItem('noteField');
-
+const ivaCheckbox = localStorage.getItem('include-iva');
+const IVA_RATE= 0.16; // 16% IVA rate
 let clientCompanyName = localStorage.getItem('clientCompanyName');
+
 
 
 function getTotalColumnData() {
@@ -23,11 +25,12 @@ function getTotalColumnData() {
 
 function fillQuote() {
     fillQuoteDetails();   
-    subTotal = fillTable();
+    const subTotal = fillTable();
     fillSummary(subTotal);
     // Fill the quote info
     fillRecipientDetails();
 }
+
 function fillTable() {
     const columns = 3; 
     const totalData = getTotalColumnData();
@@ -59,14 +62,13 @@ function fillTable() {
     return subTotal
 }
 
-function fillSummary(subTotal) {
-    const ivaCheckbox = localStorage.getItem('include-iva'); 
+function fillSummary(subTotal) { 
     document.getElementById('subtotal').textContent = subTotal;
     let iva = 0;
 
     if (ivaCheckbox === 'true') {
         document.getElementById('iva-rate').textContent = 'IVA (16%): $';
-        iva = subTotal * 0.16; // 16% IVA
+        iva = subTotal * IVA_RATE // 16% IVA
     }else {
         document.getElementById('iva-rate').textContent = 'IVA (0%): $';
     }
@@ -76,7 +78,6 @@ function fillSummary(subTotal) {
 
 
 function fillRecipientDetails() {
-    
     if (clientCompanyName === null || clientCompanyName === undefined || clientCompanyName === '') {
         clientCompanyName = '';
     }
@@ -92,7 +93,6 @@ function minuteOfTheDay(date) {
   return date.getHours() * 60 + date.getMinutes();
 }
 
-
 function createClientID() {
     const len = clientCompanyName.length;
     const firstThird = clientCompanyName.slice(0, len / 3).toUpperCase();
@@ -102,7 +102,7 @@ function createClientID() {
 }
 
 function fillQuoteDetails() {
-    today = new Date()
+    const today = new Date()
     document.getElementById('quote-number').textContent = "CT" + dayOfTheYear(today) + minuteOfTheDay(today);
     document.getElementById('date').textContent = today.toLocaleDateString('es-MX', { year: 'numeric', month: '2-digit', day: '2-digit' });
     if( clientCompanyName === null || clientCompanyName === undefined || clientCompanyName === '') {

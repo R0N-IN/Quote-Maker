@@ -24,11 +24,17 @@ function getTotalColumnData() {
 }
 
 function fillQuote() {
+    changeDocumentType();
     fillQuoteDetails();   
     const subTotal = fillTable();
     fillSummary(subTotal);
     // Fill the quote info
     fillRecipientDetails();
+}
+
+function changeDocumentType() {
+    const documentType = localStorage.getItem('documentType');
+    document.getElementById('document-type').textContent = documentType
 }
 
 function fillTable() {

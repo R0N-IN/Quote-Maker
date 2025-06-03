@@ -4,10 +4,14 @@ body {
   color: #333;
   margin: 0;
   padding: 20px;
+  flex-wrap: wrap;
+  display: grid;
+  flex-direction: column;
+  align-items: center;
 }
 
 .container{
-  width: 60%;
+  width: 70%;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -27,7 +31,7 @@ td {
   font-size: 16px;
   width: 80%;
   margin: 0 auto;  
-  display: grid
+  display: grid;
 }
 
 #note-field {
@@ -39,13 +43,14 @@ resize: none;
 
 #name-field, #note-field, #company-field {
 font-family: 'Courier New', Courier, monospace;
-width: 100%;
-padding: 10px;
-font-size: 16px;
-margin-right: 10px;
-border-radius: 5px;
-border: 1px solid #ccc;
-margin-bottom: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+  margin-right: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 5px;
 }
 
 #name-field:focus, #note-field:focus #company-field:focus {
@@ -69,24 +74,57 @@ border-radius: 4px;
 
 .checkbox-group {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  width: 100%;
   padding: 10px;
   font-family: 'Courier New', Courier, monospace;
   font-size: 16px;
-  border-radius: 5px;
   border: 1px solid #ccc;
   margin-bottom: 5px;
-
   background-color: white;
+  flex-wrap: wrap; 
+  border-radius: 5px;
+  gap: 10px;
 }
 
-/* Checkbox input style */
+.checkbox-wrapper,
+.dropdown-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 5px; 
+}
+
 #include-iva-checkbox {
-  margin-right: 10px;
   transform: scale(1.2);
   accent-color: #66afe9;
 }
+
+
+#document-type-dropdown {
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  min-width: auto;
+}
+
+@media (max-width: 480px) {
+  .checkbox-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .dropdown-wrapper {
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 10px;
+  }
+  #document-type-dropdown {
+    min-width: auto;
+    box-sizing: border-box;
+  }
+}
+
+
 
 button:hover {
 background-color: #3e8e41;

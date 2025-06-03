@@ -5,7 +5,7 @@
     <title>Formulario de Cotización</title>
     <link rel="stylesheet" href="form-style.css">
   </head>
-  <body onload="createTable()">
+  <body onload="createTable(); updateCreateButton()">
       <div class="container">
         <h1>Datos de Cotización</h1>
         <div class="input-container">
@@ -13,8 +13,17 @@
           <input type="text" id="company-field" placeholder="Empresa">
           <textarea id="note-field" placeholder="Nota"></textarea> 
           <div class="checkbox-group">
-            <input type="checkbox" id="include-iva-checkbox" value="include-iva">
-            <label for="include-iva-checkbox">Incluir IVA?</label>
+            <div class="checkbox-wrapper">
+              <input type="checkbox" id="include-iva-checkbox" value="include-iva">
+              <label for="include-iva-checkbox">Incluir IVA?</label>
+            </div>
+            <div class="dropdown-wrapper">
+              <label for="document-type-dropdown">Tipo de Documento</label>
+              <select id="document-type-dropdown" onchange="updateCreateButton()">
+                <option value="Nota">Nota</option>
+                <option value="Cotización">Cotización</option>
+              </select>
+            </div>
           </div> 
         </div> 
         
@@ -27,7 +36,7 @@
         </table>
        
         <div class="container">
-          <button id="create-file" onclick="displayData();saveAndGo()">Crear Cotizacion</button>
+          <button id="create-button" onclick="displayData();saveAndGo()"></button>
         </div>   
         <script src="create-form-table.js"></script>
       </div>

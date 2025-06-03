@@ -5,7 +5,8 @@ const columns = 3;
 const clientNameField = document.getElementById("name-field");
 const noteField = document.getElementById("note-field");
 const clientCompanyName = document.getElementById("company-field");
-const ivaStatus = document.getElementById("include-iva-checkbox").checked
+const ivaStatus = document.getElementById("include-iva-checkbox");
+const documentTypeDropdown = document.getElementById("document-type-dropdown");
 let rows = 1;
 
 function createTable(){    
@@ -72,6 +73,15 @@ function updateData(row, col, value) {
     tableData[row][col] = value;
 }
 
+function updateCreateButton(){
+    const createButton = document.getElementById("create-button");
+    if(documentTypeDropdown.value === "Cotización"){
+        createButton.textContent = "Crear Cotización";
+    }else{
+        createButton.textContent = "Crear Nota";
+    }
+}
+
 function saveAndGo() {
     localStorage.clear();
     localStorage.setItem("tableData", JSON.stringify(tableData));
@@ -79,7 +89,8 @@ function saveAndGo() {
     localStorage.setItem("clientNameField", clientNameField.value);
     localStorage.setItem("noteField", noteField.value);
     localStorage.setItem("clientCompanyName", clientCompanyName.value);
-    localStorage.setItem("include-iva",ivaStatus.checked);
+    localStorage.setItem("includeIva",ivaStatus.checked);
+    localStorage.setItem("documentType", documentTypeDropdown.value);
     window.open("/static/quote.html", "_blank"); 
 }
 

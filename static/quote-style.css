@@ -15,11 +15,13 @@ body {
   margin: 0 auto;
 }
   
-.header {
+#document-type {
   font-size: 50px;
   text-align: right;
   margin-bottom: 10px;
+  font-weight: bold;
 }
+
 td {
     word-wrap: break-word;
 }

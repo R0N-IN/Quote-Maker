@@ -3,7 +3,7 @@ const rows = parseInt(localStorage.getItem('rows'));
 const tableData = JSON.parse(localStorage.getItem('tableData'));
 const clientNameField = localStorage.getItem('clientNameField');
 const noteField = localStorage.getItem('noteField');
-const ivaCheckbox = localStorage.getItem('include-iva');
+const ivaCheckbox = localStorage.getItem('includeIva');
 const IVA_RATE= 0.16; // 16% IVA rate
 let clientCompanyName = localStorage.getItem('clientCompanyName');
 
@@ -20,7 +20,7 @@ function getTotalColumnData() {
         // Add to final total
         total += price * quantity;
     }
-    return [totalColumn, total.toFixed(2)];
+    return [totalColumn, total];
 }
 
 function fillQuote() {
@@ -61,7 +61,7 @@ function fillTable() {
         const totalCell = document.createElement('td');
         totalCell.setAttribute('data-static', 'true');
         totalCell.setAttribute('class', 'text');
-        totalCell.textContent = totalColumn[i];
+        totalCell.textContent = totalColumn[i].toLocaleString('es-MX', { style: 'currency', currency: 'MXN' })
         row.appendChild(totalCell);
         tbody.appendChild(row);
     }
@@ -69,17 +69,17 @@ function fillTable() {
 }
 
 function fillSummary(subTotal) { 
-    document.getElementById('subtotal').textContent = subTotal;
+    document.getElementById('subtotal').textContent = subTotal.toLocaleString('es-MX', { style: 'currency', currency: 'MXN' });
     let iva = 0;
 
     if (ivaCheckbox === 'true') {
-        document.getElementById('iva-rate').textContent = 'IVA (16%): $';
+        document.getElementById('iva-rate').textContent = 'IVA (16%):';
         iva = subTotal * IVA_RATE // 16% IVA
     }else {
-        document.getElementById('iva-rate').textContent = 'IVA (0%): $';
+        document.getElementById('iva-rate').textContent = 'IVA (0%):';
     }
-    document.getElementById('iva').textContent = iva.toFixed(2);
-    document.getElementById('total').textContent = (parseFloat(subTotal) + iva).toFixed(2);
+    document.getElementById('iva').textContent = iva.toLocaleString('es-MX', { style: 'currency', currency: 'MXN' });
+    document.getElementById('total').textContent = (parseFloat(subTotal) + iva).toLocaleString('es-MX', { style: 'currency', currency: 'MXN' });;
 }
 
 

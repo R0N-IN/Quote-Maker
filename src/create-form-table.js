@@ -46,6 +46,25 @@ function createTable(){
     addRow();
 }
 
+table.addEventListener("focusout", (event) => {
+    const cell = event.target;
+    if (cell.tagName === "TD" && cell.cellIndex === 2) {
+        let rawValue = cell.textContent.trim();
+        let numberValue = parseFloat(rawValue.replace(/[^0-9.-]+/g, ""));
+
+        if (!isNaN(numberValue)) {
+            const formattedValue = new Intl.NumberFormat('es-MX', {
+                style: 'currency',
+                currency: 'MXN'
+            }).format(numberValue);
+            cell.textContent = formattedValue;
+
+            const rowIndex = cell.parentNode.rowIndex - 1;
+            updateData(rowIndex, cell.cellIndex, formattedValue);
+        }
+    }
+});
+
 function addRow(){
     let rowData = [];
     let row = document.createElement("tr");
@@ -63,9 +82,9 @@ function addRow(){
 }
 
 function updateCell(event) {
-    let rowIndex = event.target.parentNode.rowIndex - 1;
-    let columnIndex = event.target.cellIndex;
-    let value = event.target.textContent.trim();
+    const rowIndex = event.target.parentNode.rowIndex - 1;
+    const columnIndex = event.target.cellIndex;
+    const value = event.target.textContent.trim();
     updateData(rowIndex, columnIndex, value);
 }
 

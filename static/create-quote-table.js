@@ -14,8 +14,8 @@ function getTotalColumnData() {
     let totalColumn = []
     //Calculate total for each row 
     for (let i = 0; i < rows; i++) {
-        const price = parseFloat(tableData[i][2]) || 0;
-        const quantity = parseFloat(tableData[i][1]) || 0;
+        const price = Number(tableData[i][2].replace(/[^0-9\.-]+/g, ""))
+        const quantity = parseInt(tableData[i][1]) || 0;
         totalColumn.push(price * quantity); 
         // Add to final total
         total += price * quantity;
